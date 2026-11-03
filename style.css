@@ -1,0 +1,45 @@
+/* رحلة مستكشف الفضاء — التنسيق (RTL) */
+:root{--card:#16235a;--ac:#ffc533;--ok:#35d07f;--no:#ff6b6b}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Cairo,Tajawal,sans-serif;color:#fff;background:radial-gradient(circle at 20% 10%,#1d2f7a,#0b1437 60%) fixed}
+.stars{position:fixed;inset:0;z-index:-1;background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(1.5px 1.5px at 90px 80px,#9cf,transparent),radial-gradient(2px 2px at 150px 20px,#fff,transparent);background-size:180px 120px;animation:tw 4s infinite alternate}
+@keyframes tw{to{opacity:.45}}
+.float{position:fixed;font-size:3rem;opacity:.45;z-index:-1;animation:fl 6s ease-in-out infinite alternate}
+.p1{top:12%;left:5%}.p2{bottom:10%;right:4%;animation-delay:-2s}.p3{top:55%;left:8%;animation-delay:-4s}
+@keyframes fl{to{transform:translateY(-22px) rotate(10deg)}}
+.wrap{max-width:900px;margin:auto;padding:16px}
+.card{background:var(--card);border:2px solid #2f45a8;border-radius:20px;padding:20px;margin:12px 0;box-shadow:0 8px 24px #0006}
+h1,h2{text-align:center;margin:.3em 0}
+.hero{font-size:4rem;text-align:center}
+button{font:inherit;font-weight:700;border:0;border-radius:14px;padding:10px 18px;background:var(--ac);color:#1a1a3a;cursor:pointer;box-shadow:0 4px 0 #b88a00;transition:.15s}
+button:hover:not(:disabled){transform:translateY(-2px)}
+button:disabled{opacity:.4;cursor:not-allowed}
+.nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.alt{background:#5b7cff;color:#fff;box-shadow:0 4px 0 #3050cc}
+.red{background:var(--no);color:#fff;box-shadow:0 4px 0 #b33}
+input{font:inherit;padding:12px;border-radius:12px;border:2px solid var(--ac);width:100%;max-width:320px;text-align:center}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.stats div{flex:1;min-width:110px;text-align:center;background:#0b1437;border-radius:14px;padding:10px}
+.bar{height:16px;background:#0b1437;border-radius:9px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ok),var(--ac));transition:width .6s}
+.path{display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:10px;text-align:center}
+.stage{width:140px;cursor:pointer}
+.stage .pl{font-size:3.5rem;animation:fl 3s ease-in-out infinite alternate}
+.stage.lock{filter:grayscale(1);opacity:.5;cursor:not-allowed}
+.stage.done .pl::after{content:"✅";font-size:1.3rem}
+.opt{display:block;width:100%;margin:10px 0;text-align:right;background:#22338a;color:#fff;box-shadow:0 4px 0 #111c5a;font-size:1.1rem}
+.opt.sel{outline:3px solid var(--ac)}.opt.ok{background:var(--ok);color:#052}.opt.no{background:var(--no)}
+.fb{padding:12px;border-radius:12px;margin:10px 0}.fb.ok{background:#1e7f4f}.fb.no{background:#8a2d3b}
+.badge{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;text-align:center;font-size:1.8rem;line-height:1.2;margin:10px auto;border:6px solid #fff8;animation:pop .8s}
+.b1{background:radial-gradient(#e9a66a,#cd7f32)}.b2{background:radial-gradient(#fff,#b8c0cc)}.b3{background:radial-gradient(#fff3a0,#e0a800)}
+.off{filter:grayscale(1);opacity:.35}
+@keyframes pop{from{transform:scale(0) rotate(-180deg)}}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;text-align:center}
+.cert{background:#fff;color:#222;border:12px double var(--c);border-radius:12px;padding:24px;text-align:center}
+.cert h1{color:var(--c)}
+.conf{position:fixed;top:-30px;font-size:1.6rem;animation:fall 2.5s linear forwards;z-index:9}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+table{width:100%;border-collapse:collapse;text-align:center}td,th{padding:8px;border-bottom:1px solid #2f45a8}
+@media print{body{background:#fff}.stars,.float,.noprint,.nav{display:none}@page{size:landscape}}
+@media(max-width:560px){.hero{font-size:3rem}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
